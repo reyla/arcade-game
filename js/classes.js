@@ -11,7 +11,18 @@ class Entity {
     }
 
     render() {
-      ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+        ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+    }
+
+    checkCollisions(playerOrEnemy) {
+        if (this.y === playerOrEnemy.y) {
+            if (this.x >= playerOrEnemy.x - 0.5 && this.x <= playerOrEnemy.x + 0.5) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
     }
 }
 
