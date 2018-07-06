@@ -1,3 +1,6 @@
+// classes code designed with help from Rodrick Bloomfield via this webinar: https://zoom.us/recording/play/aulotDlzKFegQFIJTaTzKgWvNkVsYtlwO454vL1UPE1Cm6lOUBQCtfVurPOIAGAS
+
+
 class Entity {
     constructor() {
         this.sprite = 'images/';
@@ -45,7 +48,6 @@ class Player extends Entity {
         }
     }
 
-
     render() {
       super.render();
       this.moving = false;
@@ -68,6 +70,13 @@ class Player extends Entity {
         }
         this.moving = true;
     }
+
+    reset() {
+        this.moving = false;
+        this.win = false;
+        this.x = 2;
+        this.y = 5;
+    }
 }
 
 
@@ -79,11 +88,19 @@ class Enemy extends Entity {
         this.y = y;
     }
 
+    // vary the enemy's speed with each loop
+    changePace(dt) {
+        let speed = Math.floor(Math.random() * 10) * dt;
+        this.x += speed;
+    }
+
     // if the enemy goes off screen, loop them around to the other side
+    // otherwise, increment their space
     update(dt) {
         super.update();
         if(this.isOutOfBoundsX) {
             this.x = -1;
+            // this.changePace();
         } else {
             this.x += dt;
         }

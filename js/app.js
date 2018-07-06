@@ -1,5 +1,5 @@
 const player = new Player();
-const allEnemies = [...Array(3)].map((_,i)=> new Enemy(0,i+1));
+const allEnemies = [...Array(3)].map((_,i) => new Enemy(0,i+1));
 
 
 // This listens for key presses and sends the keys to the
@@ -19,10 +19,9 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-function reset() {
-    player.y = 5;
-    player.x = 2;
+function replay() {
     document.getElementById('modal').classList.toggle('hide');
+    player.reset();
 }
 
-document.getElementById("replay").addEventListener("click", reset);
+document.getElementById("replay").addEventListener("click", replay);
