@@ -88,21 +88,17 @@ class Enemy extends Entity {
         this.y = y;
     }
 
-    // vary the enemy's speed with each loop
-    changePace(dt) {
-        let speed = Math.floor(Math.random() * 10) * dt;
-        this.x += speed;
-    }
 
-    // if the enemy goes off screen, loop them around to the other side
-    // otherwise, increment their space
     update(dt) {
+        // set speed for enemy
+        let speed = Math.floor(Math.random() * 8);
         super.update();
+        // if the enemy goes off screen, loop them around to the other side
         if(this.isOutOfBoundsX) {
             this.x = -1;
-            // this.changePace();
         } else {
-            this.x += dt;
+            // otherwise, increment their position according to their speed
+            this.x += speed * dt;
         }
     }
 }
