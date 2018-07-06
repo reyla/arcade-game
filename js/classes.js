@@ -31,6 +31,22 @@ class Player extends Entity {
     constructor() {
         super();
         this.sprite += 'char-boy.png';
+        this.moving = false;
+        this.win = false;
+    }
+
+    update(dt) {
+        super.update();
+        if (this.isOutOfBoundsY && !this.moving && !this.win) {
+            alert("Win");
+            this.win = true;
+        }
+    }
+
+
+    render() {
+      super.render();
+      this.moving = false;
     }
 
     handleInput(input) {
@@ -48,6 +64,7 @@ class Player extends Entity {
                 this.y = this.y > 5 ? this.y + 1 : this.y;
                 break;
         }
+        this.moving = true;
     }
 }
 
@@ -60,6 +77,7 @@ class Enemy extends Entity {
         this.y = y;
     }
 
+    // if the enemy goes off screen, loop them around to the other side
     update(dt) {
         super.update();
         if(this.isOutOfBoundsX) {
