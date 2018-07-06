@@ -5,8 +5,9 @@ class Entity {
         this.y = 5;
     }
 
-    update() {
-      
+    update(dt) {
+        this.isOutOfBoundsX = this.x > 5;
+        this.isOutOfBoundsY = this.y < 1;
     }
 
     render() {
@@ -29,5 +30,14 @@ class Enemy extends Entity {
         this.sprite += 'enemy-bug.png';
         this.x = x;
         this.y = y;
+    }
+
+    update(dt) {
+        super.update();
+        if(this.isOutOfBoundsX) {
+            this.x = -1;
+        } else {
+            this.x += dt;
+        }
     }
 }
