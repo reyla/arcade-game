@@ -18,3 +18,11 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+function reset() {
+    player.y = 5;
+    player.x = 2;
+    document.getElementById('modal').classList.toggle('hide');
+}
+
+document.getElementById("replay").addEventListener("click", reset);

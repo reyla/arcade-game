@@ -15,7 +15,7 @@
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
-     * create the canvas element, grab the 2D context for that canvas
+     * create the canvas element, grab the 2D context for that canvas,
      * set the canvas elements height/width and add it to the DOM.
      */
     var doc = global.document,
@@ -69,13 +69,7 @@ var Engine = (function(global) {
     }
 
     /* This function is called by main (our game loop) and itself calls all
-     * of the functions which may need to update entity's data. Based on how
-     * you implement your collision detection (when two entities occupy the
-     * same space, for instance when your character should die), you may find
-     * the need to add an additional function call here. For now, we've left
-     * it commented out - you may or may not want to implement this
-     * functionality this way (you could just implement collision detection
-     * on the entities themselves within your app.js file).
+     * of the functions which may need to update entity's data.
      */
     function update(dt) {
         updateEntities(dt);
@@ -96,7 +90,10 @@ var Engine = (function(global) {
         player.update();
     }
 
-
+    /* This function loops through all enemies and runs the checkCollisions
+     * method found in their class object. If there is a collion, the player
+     * position is reset.
+     */
     function checkCollisions() {
         allEnemies.forEach(enemy => {
             if(enemy.checkCollisions(player) || player.checkCollisions(enemy)) {
@@ -107,10 +104,8 @@ var Engine = (function(global) {
     }
 
     /* This function initially draws the "game level", it will then call
-     * the renderEntities function. Remember, this function is called every
-     * game tick (or loop of the game engine) because that's how games work -
-     * they are flipbooks creating the illusion of animation but in reality
-     * they are just drawing the entire screen over and over.
+     * the renderEntities function. This function is called every
+     * game tick (or loop of the game engine).
      */
     function render() {
         /* This array holds the relative URL to the image used
@@ -152,8 +147,8 @@ var Engine = (function(global) {
     }
 
     /* This function is called by the render function and is called on each game
-     * tick. Its purpose is to then call the render functions you have defined
-     * on your enemy and player entities within app.js
+     * tick. Its purpose is to then call the render functions defined
+     * on the enemy and player entities within their classes
      */
     function renderEntities() {
         /* Loop through all of the objects within the allEnemies array and call
@@ -171,10 +166,11 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        player.y = 5;
+        player.x = 2;
     }
 
-    /* Go ahead and load all of the images we know we're going to need to
+    /* Load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
      */
@@ -189,7 +185,7 @@ var Engine = (function(global) {
 
     /* Assign the canvas' context object to the global variable (the window
      * object when run in a browser) so that developers can use it more easily
-     * from within their app.js files.
+     * from within their js files.
      */
     global.ctx = ctx;
 })(this);
