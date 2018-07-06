@@ -31,7 +31,7 @@ body {
 }
 
 
-#replay {
+#replay-button {
    background-color: #ff6f59;
    font-family: 'Roboto', sans-serif;
    font-size: 20px;
@@ -41,8 +41,8 @@ body {
    border-radius: 8px;
 }
 
-#replay:hover,
-#replay:focus {
+#replay-button:hover,
+#replay-button:focus {
    cursor: pointer;
    background-color: #f0d9e9;
 }

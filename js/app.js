@@ -1,6 +1,8 @@
 const player = new Player();
-const allEnemies = [...Array(3)].map((_,i) => new Enemy(0,i+1));
-
+// create array of enemies with X set off-grid up to -5,
+// and y set to incrementing rows
+const allEnemies = [...Array(3)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
+const button = document.getElementById('replay-button');
 
 // This listens for key presses and sends the keys to the
 // Player.handleInput() method. Accepts both arrow keys and WASD for lefties.
@@ -24,4 +26,5 @@ function replay() {
     player.reset();
 }
 
-document.getElementById("replay").addEventListener("click", replay);
+// this listens for click on the replay button
+button.addEventListener('click', replay);
