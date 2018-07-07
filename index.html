@@ -2,19 +2,75 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
+    <title>Arcade Game</title>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="modal" class="hide">
-      <div class="modal-content">
-        <h3>You win!</h3>
-        <button id="replay-button">Play again</button>
+  <div class="container">
+      <header>
+          <h1>Arcade Game</h1>
+      </header>
+
+      <section class="overview">
+        <p>Navigate your character from the grass to the water using your arrow keys (or wasd).<br>
+          Don't run into any bugs!<br/>
+          <a href="#instructions">View instructions below</a>.</p>
+      </section>
+
+      <section class="score-panel">
+        <ul class="hearts">
+          <li><i class="fa fa-heart"></i></li>
+          <li><i class="fa fa-heart"></i></li>
+          <li><i class="fa fa-heart"></i></li>
+        </ul>
+
+        <div class="clock">00:00</div>
+
+        <div class="restart">
+          <i class="fa fa-repeat" title="Restart"></i>
+         </div>
+      </section>
+
+      <section id="gameboard">
+      </section>
+
+      <section class="instructions">
+        <a name="instructions"></a>
+        <h3>How To Play</h3>
+          <ol class="instructions-list">
+            <li>The goal is to have your player cross the street to reach the water at the top of the game board without running into any enemy bugs.</li>
+            <li>The player starts at the bottom of the game board.</li>
+            <li>Use the arrow keys or WASD keys on your keyboard to control the player to move him up to the top of the game board.</li>
+            <li>If the player collides with any enemy bugs, he will get reset back to starting position.</li>
+            <li>Once you reach the water, a popup will notify you that you have won the game.</li>
+            <li>You can use the "Play again" button on the pop-up to start a new game.</li>
+          </ol>
+          <div class="back-to-top">
+            <i class="fa fa-arrow-up" title="Back to top"></i>
+          </div>
+      </section>
+
+      <div id="modal" class="hide">
+        <div class="modal-content">
+          <h3>You win!</h3>
+          <p>Your time was: <span class="winTime"></span></p>
+          <p>Lives remaining: <span class="winRating"></span></p>
+          <button id="replay-button">Play again</button>
+        </div>
       </div>
+
+      <script src="js/resources.js"></script>
+      <script src="js/classes.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/engine.js"></script>
+
+      <footer class="footer">
+        <a href="http://github.com/reyla/arcade-game">View on Github</a>
+        <p class="copyright">Copyright &copy;2018 Kate Speed</p>
+      </footer>
+
     </div>
-    <script src="js/resources.js"></script>
-    <script src="js/classes.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
-</body>
+  </body>
 </html>
