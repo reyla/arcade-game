@@ -3,6 +3,7 @@ const player = new Player();
 // and y set to incrementing rows
 const allEnemies = [...Array(3)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
 const button = document.getElementById('replay-button');
+const restart = document.getElementById('restart-icon');
 
 // This listens for key presses and sends the keys to the
 // Player.handleInput() method. Accepts both arrow keys and WASD for lefties.
@@ -22,9 +23,14 @@ document.addEventListener('keyup', function(e) {
 });
 
 function replay() {
-    document.getElementById('modal').classList.toggle('hide');
     player.reset();
 }
 
 // this listens for click on the replay button
-button.addEventListener('click', replay);
+button.addEventListener('click', function() {
+    document.getElementById('modal').classList.toggle('hide');
+    replay();
+});
+
+// this listens for click on the restart icon
+restart.addEventListener('click', replay);
