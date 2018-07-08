@@ -23,8 +23,7 @@ var Engine = (function(global) {
         gameboard = document.getElementById('gameboard'),
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime,
-        allEnemies = [];
+        lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -71,29 +70,6 @@ var Engine = (function(global) {
         main();
     }
 
-    // create array of enemies with (x,y) coordinates for starting position
-    function buildEnemies() {
-        allEnemies = [...Array(4)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
-        const Enemy1 = new Enemy();
-        const Enemy2 = new Enemy();
-        const Enemy3 = new Enemy();
-        randomStart(Enemy1);
-        randomStart(Enemy2);
-        randomStart(Enemy3);
-        allEnemies.push(Enemy1, Enemy2, Enemy3);
-
-    }
-
-    function randomStart(enemy) {
-        enemy.x = getRandomInt(-10, -6);
-        enemy.y = getRandomInt(1, 5);
-    }
-
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
 
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data.

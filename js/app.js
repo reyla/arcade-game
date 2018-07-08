@@ -24,6 +24,30 @@ document.addEventListener('keyup', function(e) {
 });
 
 
+    // create array of enemies with (x,y) coordinates for starting position
+    function buildEnemies() {
+        allEnemies = [...Array(4)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
+        const Enemy1 = new Enemy();
+        const Enemy2 = new Enemy();
+        const Enemy3 = new Enemy();
+        randomStart(Enemy1);
+        randomStart(Enemy2);
+        randomStart(Enemy3);
+        allEnemies.push(Enemy1, Enemy2, Enemy3);
+    }
+
+    function randomStart(enemy) {
+        enemy.x = getRandomInt(-10, -6);
+        enemy.y = getRandomInt(1, 5);
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+
 function updateHearts(hearts) {
     switch(hearts) {
         case 3:
@@ -62,6 +86,8 @@ function gameEnds() {
 function replay() {
     player.reset();
     updateHearts(player.hearts);
+    allEnemies = [];
+    buildEnemies();
 }
 
 // this listens for click on the replay button
