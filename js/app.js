@@ -1,12 +1,10 @@
 const player = new Player();
-// create array of enemies with X set off-grid up to -5,
-// and y set to incrementing rows
-const allEnemies = [...Array(3)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
 const heartsListCurrent = document.getElementById('hearts-list-current');
 const heartsListFinal = document.getElementById('hearts-list-final');
 const button = document.getElementById('replay-button');
 const restart = document.getElementById('restart-icon');
 const gameResult = document.getElementById('game-result');
+const modal = document.getElementById('modal');
 
 // This listens for key presses and sends the keys to the
 // Player.handleInput() method. Accepts both arrow keys and WASD for lefties.
@@ -53,16 +51,17 @@ function updateModal() {
     else {
         gameResult.innerHTML = "Sorry, you ran out of hearts!";
     }
+    modal.classList.toggle('hide');
 }
 
 function gameEnds() {
-    document.getElementById('modal').classList.toggle('hide');
     updateModal();
     player.reset();
 }
 
 function replay() {
     player.reset();
+    updateHearts(player.hearts);
 }
 
 // this listens for click on the replay button

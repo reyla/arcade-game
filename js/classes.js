@@ -88,6 +88,11 @@ class Enemy extends Entity {
         this.y = y;
     }
 
+    setPosition() {
+        this.x = (Math.floor(Math.random() * -5));
+        this.y = (Math.floor(Math.random() * 3));
+    }
+
     update(dt) {
         // set speed for enemy
         let speed = Math.floor(Math.random() * 5);
