@@ -42,15 +42,13 @@ class Player extends Entity {
         super.update();
         // check win condition
         if (this.isOutOfBoundsY && !this.moving && !this.win) {
-            // show popup modal
-            document.getElementById('modal').classList.toggle('hide');
             this.win = true;
         }
     }
 
     render() {
-      super.render();
-      this.moving = false;
+        super.render();
+        this.moving = false;
     }
 
     handleInput(input) {
