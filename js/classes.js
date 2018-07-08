@@ -75,6 +75,7 @@ class Player extends Entity {
         this.win = false;
         this.x = 2;
         this.y = 5;
+        this.hearts = 3;
     }
 }
 

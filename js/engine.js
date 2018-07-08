@@ -90,14 +90,10 @@ var Engine = (function(global) {
         });
         player.update();
         if (player.win) {
-            winner();
+            gameEnds();
         }
     }
 
-    function winner() {
-        document.getElementById('modal').classList.toggle('hide');
-        player.reset();
-    }
 
 
     /* This function loops through all enemies and runs the checkCollisions
