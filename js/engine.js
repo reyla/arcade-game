@@ -89,7 +89,18 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
+        if (player.win) {
+            winner();
+        }
     }
+
+    function winner() {
+        stopTimer();
+        updateFinalHearts(hearts);
+        document.getElementById('modal').classList.toggle('hide');
+        player.reset();
+    }
+
 
     /* This function loops through all enemies and runs the checkCollisions
      * method found in their class object. If there is a collion, the player
@@ -161,6 +172,9 @@ var Engine = (function(global) {
 
         player.render();
     }
+
+
+
 
     /* Load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
