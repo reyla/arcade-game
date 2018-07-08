@@ -86,19 +86,22 @@ class Enemy extends Entity {
         this.sprite += 'enemy-bug.png';
         this.x = x;
         this.y = y;
+        this.speed = 1;
     }
 
 
     update(dt) {
-        // set speed for enemy
-        let speed = Math.floor(Math.random() * 5);
         super.update();
         // if the enemy goes off screen, loop them around to the other side
         if(this.isOutOfBoundsX) {
             this.x = -1;
         } else {
             // otherwise, increment their position according to their speed
-            this.x += speed * dt;
+            this.x += this.speed * dt;
         }
+    }
+
+    setSpeed() {
+        this.speed += (Math.floor(Math.random() * 3));
     }
 }
