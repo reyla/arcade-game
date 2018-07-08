@@ -4,6 +4,7 @@ const player = new Player();
 const allEnemies = [...Array(3)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
 const button = document.getElementById('replay-button');
 const restart = document.getElementById('restart-icon');
+const finalHearts = document.getElementById('final-hearts');
 
 // This listens for key presses and sends the keys to the
 // Player.handleInput() method. Accepts both arrow keys and WASD for lefties.
@@ -21,6 +22,26 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+function stopTimer(){
+
+}
+
+function updateFinalHearts(hearts) {
+    switch(hearts) {
+        case 3:
+            finalHearts.innerHTML = '<i class="fa fa-heart"></i> <i class="fa fa-heart"></i> <i class="fa fa-heart"></i>';
+            break;
+        case 2:
+            finalHearts.innerHTML = '<i class="fa fa-heart"></i> <i class="fa fa-heart"></i>';
+            break;
+        case 1:
+            finalHearts.innerHTML = '<i class="fa fa-heart"></i>';
+            break;
+    }
+}
+
 
 function replay() {
     player.reset();

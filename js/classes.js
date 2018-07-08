@@ -36,6 +36,7 @@ class Player extends Entity {
         this.sprite += 'char-boy.png';
         this.moving = false;
         this.win = false;
+        this.hearts = 3;
     }
 
     update(dt) {

@@ -96,7 +96,7 @@ var Engine = (function(global) {
 
     function winner() {
         stopTimer();
-        updateFinalHearts(hearts);
+        updateFinalHearts(player.hearts);
         document.getElementById('modal').classList.toggle('hide');
         player.reset();
     }
