@@ -95,8 +95,6 @@ var Engine = (function(global) {
     }
 
     function winner() {
-        stopTimer();
-        updateFinalHearts(player.hearts);
         document.getElementById('modal').classList.toggle('hide');
         player.reset();
     }
@@ -112,7 +110,7 @@ var Engine = (function(global) {
                 player.y = 5;
                 player.x = 2;
                 player.hearts -= 1;
-                currentHearts.lastChild.remove();
+                updateHearts(player.hearts);
             }
         });
     }

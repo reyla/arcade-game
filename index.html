@@ -20,13 +20,10 @@
       </section>
 
       <section class="score-panel">
-        <ul id="hearts">
-          <li><i class="fa fa-heart"></i></li>
-          <li><i class="fa fa-heart"></i></li>
-          <li><i class="fa fa-heart"></i></li>
-        </ul>
-
-        <div id="clock">00:00</div>
+        <p>Lives: </p>
+        <div id="hearts-list-current">
+          <i class="fa fa-heart"></i><i class="fa fa-heart"></i><i class="fa fa-heart"></i>
+        </div>
 
         <div class="restart">
           <i class="fa fa-repeat" title="Restart" id="restart-icon"></i>
@@ -55,7 +52,7 @@
         <div class="modal-content">
           <h3>You win!</h3>
           <p>Your time was: <span class="winTime"></span></p>
-          <p>Lives: <span id="final-hearts"></span></p>
+          <p>Lives: <div id="hearts-list-final"></div></p>
           <button id="replay-button">Play again</button>
         </div>
       </div>

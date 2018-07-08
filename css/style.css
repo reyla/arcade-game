@@ -75,23 +75,20 @@ p {
     margin-bottom: 10px;
 }
 
-#hearts {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 10px 0 0;
-}
-
-#hearts li {
-    list-style: none;
+.score-panel p {
     display: inline-block;
 }
 
-.score-panel .clock {
+#hearts-list-current,
+#hearts-list-final {
     margin: 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 25px;
+}
+
+#hearts-list-current i,
+#hearts-list-final i {
+    margin-right: 10px;
 }
 
 .score-panel .restart {
