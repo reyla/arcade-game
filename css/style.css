@@ -75,14 +75,14 @@ p {
     margin-bottom: 10px;
 }
 
-.hearts {
+#hearts {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 10px 0 0;
 }
 
-.hearts li {
+#hearts li {
     list-style: none;
     display: inline-block;
 }

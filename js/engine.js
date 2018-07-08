@@ -111,6 +111,8 @@ var Engine = (function(global) {
             if(enemy.checkCollisions(player) || player.checkCollisions(enemy)) {
                 player.y = 5;
                 player.x = 2;
+                player.hearts -= 1;
+                currentHearts.lastChild.remove();
             }
         });
     }
