@@ -26,10 +26,10 @@
           <li><i class="fa fa-heart"></i></li>
         </ul>
 
-        <div class="clock">00:00</div>
+        <div id="clock">00:00</div>
 
         <div class="restart">
-          <i class="fa fa-repeat" title="Restart"></i>
+          <i class="fa fa-repeat" title="Restart" id="restart-icon"></i>
          </div>
       </section>
 
@@ -40,15 +40,14 @@
         <a name="instructions"></a>
         <h3>How To Play</h3>
           <ol class="instructions-list">
-            <li>The goal is to have your player cross the street to reach the water at the top of the game board without running into any enemy bugs.</li>
-            <li>The player starts at the bottom of the game board.</li>
-            <li>Use the arrow keys or WASD keys on your keyboard to control the player to move him up to the top of the game board.</li>
-            <li>If the player collides with any enemy bugs, he will get reset back to starting position.</li>
-            <li>Once you reach the water, a popup will notify you that you have won the game.</li>
-            <li>You can use the "Play again" button on the pop-up to start a new game.</li>
+            <li>The goal is to have your player avoid enemy bugs and cross the street to reach the water at the top of the game board.</li>
+            <li>Use the arrow keys or WASD keys on your keyboard to move your character around the game board.</li>
+            <li>If the player collides with any enemy bugs, you will be reset back to starting position and lose 1 heart.</li>
+            <li>Once you reach the water, a popup will notify you that you have won the game and show game stats.</li>
+            <li>You can use the "Play again" button on the pop-up to start a new game or restart the game at any time using the restart icon.</li>
           </ol>
-          <div class="back-to-top">
-            <i class="fa fa-arrow-up" title="Back to top"></i>
+          <div>
+            <i id="back-to-top" class="fa fa-arrow-up" title="Back to top"></i>
           </div>
       </section>
 
@@ -56,7 +55,7 @@
         <div class="modal-content">
           <h3>You win!</h3>
           <p>Your time was: <span class="winTime"></span></p>
-          <p>Lives remaining: <span class="winRating"></span></p>
+          <p>Lives: <span id="final-hearts"></span></p>
           <button id="replay-button">Play again</button>
         </div>
       </div>
