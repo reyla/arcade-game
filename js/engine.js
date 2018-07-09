@@ -117,7 +117,10 @@ var Engine = (function(global) {
         });
         allGems.forEach(gem => {
             if(gem.checkCollisions(player) || player.checkCollisions(gem)) {
-                ;
+                player.points += 10;
+                updatePoints(player.points);
+                allGems = [];
+                buildGems();
             }
         });
     }

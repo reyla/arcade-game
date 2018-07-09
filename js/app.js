@@ -1,10 +1,13 @@
 const player = new Player();
 const heartsListCurrent = document.getElementById('hearts-list-current');
 const heartsListFinal = document.getElementById('hearts-list-final');
-const button = document.getElementById('replay-button');
+const pointsCurrent = document.getElementById('points-current');
+const pointsFinal = document.getElementById('points-final');
+var allGems = [];
 const restart = document.getElementById('restart-icon');
 const gameResult = document.getElementById('game-result');
 const modal = document.getElementById('modal');
+const button = document.getElementById('replay-button');
 
 // This listens for key presses and sends the keys to the
 // Player.handleInput() method. Accepts both arrow keys and WASD for lefties.
@@ -53,7 +56,8 @@ document.addEventListener('keyup', function(e) {
 
 
     function buildGems() {
-        allGems = [...Array(3)].map((_,i) => new Gem(Math.floor(Math.random() * -5),i+1));
+        const Gem1 = new Gem(-1,(Math.floor(Math.random() * 2)));
+        allGems.push(Gem1);
     }
 
 function updateHearts(hearts) {
@@ -76,6 +80,12 @@ function updateHearts(hearts) {
     }
 }
 
+function updatePoints(points) {
+    pointsCurrent.innerHTML = '<p>' + points + '</p>';
+    pointsFinal.innerHTML = '<p>' + points + '</p>';
+}
+
+
 function updateModal() {
     if (player.win) {
         gameResult.innerHTML = "You win!";
@@ -94,8 +104,11 @@ function gameEnds() {
 function replay() {
     player.reset();
     updateHearts(player.hearts);
+    updatePoints(0);
     allEnemies = [];
+    allGems = [];
     buildEnemies();
+    buildGems();
 }
 
 // this listens for click on the replay button
