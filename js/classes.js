@@ -37,6 +37,7 @@ class Player extends Entity {
         this.moving = false;
         this.win = false;
         this.hearts = 3;
+        this.points = 0;
     }
 
     update(dt) {
@@ -61,10 +62,10 @@ class Player extends Entity {
                 this.y = this.y > 0 ? this.y - 1 : this.y;
                 break;
             case 'right':
-                this.x = this.x > 4 ? this.x + 1 : this.x;
+                this.x = this.x < 4 ? this.x + 1 : this.x;
                 break;
             case 'down':
-                this.y = this.y > 5 ? this.y + 1 : this.y;
+                this.y = this.y < 5 ? this.y + 1 : this.y;
                 break;
         }
         this.moving = true;
