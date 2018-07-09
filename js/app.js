@@ -52,6 +52,10 @@ document.addEventListener('keyup', function(e) {
     }
 
 
+    function buildGems() {
+        allGems = [...Array(3)].map((_,i) => new Gem(Math.floor(Math.random() * -5),i+1));
+    }
+
 function updateHearts(hearts) {
     switch(hearts) {
         case 3:

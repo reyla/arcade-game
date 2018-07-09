@@ -67,6 +67,7 @@ var Engine = (function(global) {
     function init() {
         lastTime = Date.now();
         buildEnemies();
+        buildGems();
         main();
     }
 
@@ -90,6 +91,9 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+        allGems.forEach(function(gem) {
+            gem.update(dt);
+        });
         player.update();
         if (player.win) {
             gameEnds();
@@ -98,7 +102,7 @@ var Engine = (function(global) {
 
 
 
-    /* This function loops through all enemies and runs the checkCollisions
+    /* This function loops through all enemies and gems and runs the checkCollisions
      * method found in their class object. If there is a collion, the player
      * position is reset.
      */
@@ -109,6 +113,11 @@ var Engine = (function(global) {
                 player.x = 2;
                 player.hearts -= 1;
                 updateHearts(player.hearts);
+            }
+        });
+        allGems.forEach(gem => {
+            if(gem.checkCollisions(player) || player.checkCollisions(gem)) {
+                ;
             }
         });
     }
@@ -167,8 +176,10 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
         player.render();
+        allGems.forEach(function(gem) {
+            gem.render();
+        });
     }
 
 
@@ -183,7 +194,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/gem-orange.png'
     ]);
     Resources.onReady(init);
 
