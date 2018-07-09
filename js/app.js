@@ -8,6 +8,9 @@ const restart = document.getElementById('restart-icon');
 const gameResult = document.getElementById('game-result');
 const modal = document.getElementById('modal');
 const button = document.getElementById('replay-button');
+const sideBar = document.getElementById('sidebar');
+const help = document.getElementById('help-icon');
+const closeHelp = document.getElementById('close-icon');
 
 // This listens for key presses and sends the keys to the
 // Player.handleInput() method. Accepts both arrow keys and WASD for lefties.
@@ -111,11 +114,24 @@ function replay() {
     buildGems();
 }
 
+
+function openNav() {
+    sidebar.style.width = "50%";
+}
+
+function closeNav() {
+    sidebar.style.width = "0";
+}
+
 // this listens for click on the replay button
 button.addEventListener('click', function() {
-    document.getElementById('modal').classList.toggle('hide');
+    modal.classList.toggle('hide');
     replay();
 });
 
 // this listens for click on the restart icon
 restart.addEventListener('click', replay);
+
+help.addEventListener('click', openNav);
+
+closeHelp.addEventListener('click', closeNav);

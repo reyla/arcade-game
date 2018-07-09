@@ -15,11 +15,14 @@
 
       <section class="overview">
         <p>Move your character from the grass to the water using your arrow keys (or wasd).<br>
-          Watch out for bugs!<br/>
-          <a href="#instructions">View instructions below</a>.</p>
+          Collect the gems and watch out for bugs!</p>
       </section>
 
       <section class="score-panel">
+        <div class="help">
+          <i class="fa fa-question-circle" title="Help" id="help-icon"></i>
+        </div>
+
         <p>Lives: </p>
         <div id="hearts-list-current">
           <i class="fa fa-heart"></i><i class="fa fa-heart"></i><i class="fa fa-heart"></i>
@@ -38,20 +41,20 @@
       <section id="gameboard">
       </section>
 
-      <section class="instructions">
-        <a name="instructions"></a>
-        <h3>How To Play</h3>
-          <ol class="instructions-list">
-            <li>The goal is to have your player avoid enemy bugs and cross the street to reach the water at the top of the game board.</li>
-            <li>Use the arrow keys or WASD keys on your keyboard to move your character around the game board.</li>
-            <li>If the player collides with any enemy bugs, you will be reset back to starting position and lose 1 heart.</li>
-            <li>Once you reach the water, a popup will notify you that you have won the game and show game stats.</li>
-            <li>You can use the "Play again" button on the pop-up to start a new game or restart the game at any time using the restart icon.</li>
-          </ol>
-          <div>
-            <i id="back-to-top" class="fa fa-arrow-up" title="Back to top"></i>
-          </div>
-      </section>
+      <div id="sidebar">
+        <section class="instructions">
+          <i class="fa fa-times" id="close-icon" title="Close"></i>
+          <h3>How To Play</h3>
+            <ol class="instructions-list">
+              <li>The goal is to have your player avoid enemy bugs and cross the street to reach the water at the top of the game board.</li>
+              <li>Use the arrow keys or WASD keys on your keyboard to move your character around the game board.</li>
+              <li>Try to collect gems along the way to gain points!</li>
+              <li>If the player collides with any enemy bugs, you will be reset back to starting position and lose 1 heart.</li>
+              <li>Once you reach the water, a popup will notify you that you have won the game and show game stats.</li>
+              <li>You can use the "Play again" button on the pop-up to start a new game or restart the game at any time using the restart icon.</li>
+            </ol>
+        </section>
+      </div>
 
       <div id="modal" class="hide">
         <div class="modal-content">
