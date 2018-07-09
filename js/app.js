@@ -33,7 +33,7 @@ document.addEventListener('keyup', function(e) {
 
     function buildEnemies() {
         // create array of enemies with (x,y) coordinates for starting position
-        allEnemies = [...Array(4)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
+        allEnemies = [...Array(3)].map((_,i) => new Enemy(Math.floor(Math.random() * -5),i+1));
         // add additional enemies that will overlap y coordinates
         const Enemy1 = new Enemy();
         const Enemy2 = new Enemy();
@@ -47,7 +47,7 @@ document.addEventListener('keyup', function(e) {
     }
 
     function randomStart(enemy) {
-        enemy.x = getRandomInt(-10, -6);
+        enemy.x = getRandomInt(-8, 2);
         enemy.y = getRandomInt(1, 5);
     }
 
@@ -58,9 +58,14 @@ document.addEventListener('keyup', function(e) {
     }
 
 
-    function buildGems() {
-        const Gem1 = new Gem(-1,(Math.floor(Math.random() * 2)));
-        allGems.push(Gem1);
+    function buildGems(num) {
+        let i = 0;
+        while (i < num) {
+          const Gem1 = new Gem();
+          randomStart(Gem1);
+          allGems.push(Gem1);
+          i++;
+        }
     }
 
 function updateHearts(hearts) {
@@ -111,7 +116,7 @@ function replay() {
     allEnemies = [];
     allGems = [];
     buildEnemies();
-    buildGems();
+    buildGems(3);
 }
 
 
