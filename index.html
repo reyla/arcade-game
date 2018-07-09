@@ -2,21 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Arcade Game</title>
+    <title>Bug Dash</title>
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container">
-      <header>
-          <h1>Arcade Game</h1>
-      </header>
-
-      <section class="overview">
-        <p>Move your character from the grass to the water using your arrow keys (or wasd).<br>
-          Collect the gems and watch out for bugs!</p>
-      </section>
 
       <section class="score-panel">
         <div class="help">
@@ -42,6 +34,15 @@
       </section>
 
       <div id="sidebar">
+        <header>
+            <h1>Bug Dash!</h1>
+        </header>
+
+        <section class="overview">
+          <p>Move your character from the grass to the water using your arrow keys (or wasd).<br>
+            Collect the gems and watch out for bugs!</p>
+        </section>
+
         <section class="instructions">
           <i class="fa fa-times" id="close-icon" title="Close"></i>
           <h3>How To Play</h3>
@@ -53,6 +54,10 @@
               <li>Once you reach the water, a popup will notify you that you have won the game and show game stats.</li>
               <li>You can use the "Play again" button on the pop-up to start a new game or restart the game at any time using the restart icon.</li>
             </ol>
+        </section>
+        <section class="footer">
+          <a href="http://github.com/reyla/arcade-game">View on Github</a>
+          <p class="copyright">Copyright &copy;2018 Kate Speed</p>
         </section>
       </div>
 
@@ -78,10 +83,7 @@
       <script src="js/app.js"></script>
       <script src="js/engine.js"></script>
 
-      <footer class="footer">
-        <a href="http://github.com/reyla/arcade-game">View on Github</a>
-        <p class="copyright">Copyright &copy;2018 Kate Speed</p>
-      </footer>
+
 
     </div>
   </body>

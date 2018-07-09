@@ -71,7 +71,7 @@ p {
 
 .score-panel {
     text-align: left;
-    width: 440px;
+    width: 480px;
 }
 
 .score-panel p {
@@ -110,16 +110,16 @@ p {
 
 #sidebar {
      height: 100%;
-     width: 0;
+     width: 100%;
      position: fixed;
      z-index: 1;
      top: 0;
      left: 0;
-     background-color: #0c2448;
+     background-color: /*#0c2448; */ rgba(12, 26, 72, .8);
      color: #f7eaf3;
      overflow-x: hidden; /* Disable horizontal scroll */
      padding-top: 60px; /* Place content 60px from the top */
-     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+     transition: 0.6s; /* 0.5 second transition effect to slide in the sidebar */
  }
 
  /* Position and style the close button (top right corner) */
@@ -134,6 +134,7 @@ p {
 
 .instructions {
     max-width: 600px;
+    margin: 0 auto;
     padding: 0 1.5em;
 }
 

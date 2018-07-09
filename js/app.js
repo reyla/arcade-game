@@ -121,7 +121,7 @@ function replay() {
 
 
 function openNav() {
-    sidebar.style.width = "50%";
+    sidebar.style.width = "100%";
 }
 
 function closeNav() {
