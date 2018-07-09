@@ -70,14 +70,14 @@ p {
  */
 
 .score-panel {
-    text-align: left;
+    text-align: center;
     width: 480px;
 }
 
 .score-panel p {
     display: inline-block;
     line-height: 1em;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .help,
