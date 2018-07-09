@@ -115,6 +115,7 @@ class Gem extends Entity {
         this.x = x;
         this.y = y;
         this.speed = 1;
+        this.active = true;
     }
 
     update(dt) {

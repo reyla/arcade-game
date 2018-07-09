@@ -119,9 +119,8 @@ var Engine = (function(global) {
             if(player.checkCollisions(gem)) {
                 player.points += 10;
                 updatePoints(player.points);
+                gem.active = false;
                 gem.x = -10;
-                gem.y = -10;
-                // allGems = [];
                 buildGems(1);
             }
         });
@@ -175,15 +174,17 @@ var Engine = (function(global) {
      * on the enemy and player entities within their classes
      */
     function renderEntities() {
-        /* Loop through all of the objects within the allEnemies array and call
-         * the render function you have defined.
+        /* Loop through all of the objects and call
+         * the render functions you have defined.
          */
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
         player.render();
         allGems.forEach(function(gem) {
-            gem.render();
+            if (gem.active) {
+              gem.render();
+            }
         });
     }
 
