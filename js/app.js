@@ -151,13 +151,13 @@ function replay() {
 /* Opens the sidebar (when the ? icon is clicked)
  */
 function openNav() {
-    sidebar.style.width = "100%";
+    sideBar.style.width = "100%";
 }
 
 /* Closes the sidebar (when the X icon is clicked)
  */
 function closeNav() {
-    sidebar.style.width = "0";
+    sideBar.style.width = "0";
 }
 
 // this listens for click on the replay button
