@@ -54,6 +54,13 @@ function randomStart(enemy) {
     enemy.y = getRandomInt(1, 5);
 }
 
+/* Set starting position for each gem in x,y coordinates.
+ */
+function randomStartGem(gem) {
+    gem.x = getRandomInt(-8, -1);
+    gem.y = getRandomInt(2, 5);
+}
+
 /* This is a general random function with interval parameters
  * Borrowed from MDN webdocs https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
  */
@@ -72,7 +79,7 @@ function buildGems(num) {
     let i = 0;
     while (i < num) {
       const Gem1 = new Gem();
-      randomStart(Gem1);
+      randomStartGem(Gem1);
       allGems.push(Gem1);
       i++;
     }

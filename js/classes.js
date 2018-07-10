@@ -33,7 +33,7 @@ class Entity {
 class Player extends Entity {
     constructor() {
         super();
-        this.sprite += 'char-boy.png';
+        this.sprite += 'enemy-bug.png';
         this.moving = false;
         this.win = false;
         this.hearts = 3;
@@ -85,7 +85,7 @@ class Player extends Entity {
 class Enemy extends Entity {
     constructor(x, y) {
         super();
-        this.sprite += 'enemy-bug.png';
+        this.sprite += 'char-boy.png';
         this.x = x;
         this.y = y;
         this.speed = 1;
