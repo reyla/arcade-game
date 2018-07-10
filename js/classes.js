@@ -91,7 +91,6 @@ class Enemy extends Entity {
         this.speed = 1;
     }
 
-
     update(dt) {
         super.update();
         // if the enemy goes off screen, loop them around to the other side

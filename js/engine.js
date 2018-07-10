@@ -81,7 +81,7 @@ var Engine = (function(global) {
     }
 
     /* This is called by the update function and loops through all of the
-     * objects within your allEnemies array as defined in app.js and calls
+     * objects within your allEnemies array and allGems array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
      * player object. These update methods should focus purely on updating
      * the data/properties related to the object. Do your drawing in your
@@ -103,8 +103,8 @@ var Engine = (function(global) {
 
 
     /* This function loops through all enemies and gems and runs the checkCollisions
-     * method found in their class object. If there is a collion, the player
-     * position is reset.
+     * method found in their class object. If there is a collision with an enemy,
+     * the player position is reset. If it is a gem, player points are updated.
      */
     function checkCollisions() {
         allEnemies.forEach(enemy => {
@@ -115,11 +115,14 @@ var Engine = (function(global) {
                 updateHearts(player.hearts);
             }
         });
+
         allGems.forEach(gem => {
             if(player.checkCollisions(gem)) {
                 player.points += 10;
                 updatePoints(player.points);
+                // stop the gem from rendering
                 gem.active = false;
+                // move the gem object off screen
                 gem.x = -10;
                 buildGems(1);
             }
@@ -187,9 +190,6 @@ var Engine = (function(global) {
             }
         });
     }
-
-
-
 
     /* Load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
