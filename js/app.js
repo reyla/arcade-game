@@ -93,6 +93,8 @@ function updateHearts(hearts) {
             heartsListFinal.innerHTML = '<i class="fa fa-heart"></i> <i class="fa fa-minus"></i> <i class="fa fa-minus"></i>';
             break;
         case 0:
+            heartsListCurrent.innerHTML = '<i class="fa fa-minus"></i> <i class="fa fa-minus"></i> <i class="fa fa-minus"></i>';
+            heartsListFinal.innerHTML = '<i class="fa fa-minus"></i> <i class="fa fa-minus"></i> <i class="fa fa-minus"></i>';
             gameEnds();
             break;
     }
