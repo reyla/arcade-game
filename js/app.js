@@ -4,6 +4,7 @@ const heartsListFinal = document.getElementById('hearts-list-final');
 const pointsCurrent = document.getElementById('points-current');
 const pointsFinal = document.getElementById('points-final');
 var allGems = [];
+const play = document.getElementById('play-button');
 const restart = document.getElementById('restart-icon');
 const gameResult = document.getElementById('game-result');
 const modal = document.getElementById('modal');
@@ -151,6 +152,12 @@ function closeNav() {
 // this listens for click on the replay button
 button.addEventListener('click', function() {
     modal.classList.toggle('hide');
+    replay();
+});
+
+// this listens for click on the play button
+play.addEventListener('click', function() {
+    closeNav();
     replay();
 });
 
